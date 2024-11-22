@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function signup() {
+    public function signup()
+    {
         return view('auth.signup');
     }
 
-    public function storeSignUp(Request $request) {
+    public function storeSignUp(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
@@ -26,20 +28,22 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->back()->with('success', 'Berhasil');
+        return redirect()->route('signin')->with('success', 'Berhasil daftar! Silahkan login.');
     }
 
-    public function signin() {
+    public function signin()
+    {
         return view('auth.signin');
     }
 
-    public function storeSignIn(Request $request) {
+    public function storeSignIn(Request $request)
+    {
         $request->validate([
             'email' => 'required',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->to('/')->with('success', 'Berhasil login!');
         }
 

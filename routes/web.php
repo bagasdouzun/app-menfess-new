@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -21,7 +22,7 @@ Route::post('/store-signup', [AuthController::class, 'storeSignUp'])->name('stor
 Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
 Route::post('/store-signin', [AuthController::class, 'storeSignIn'])->name('storeSignIn');
 
-Route::get('/logout', function() {
+Route::get('/logout', function () {
     Auth::logout();
     return redirect()->to('/')->with('success', 'Berhasil logout!');
 })->name('logout')->middleware('auth');
@@ -34,5 +35,3 @@ Route::put('/users/{user}', [UserController::class, 'update'])->name('users.upda
 Route::resource('categories', CategoryController::class);
 
 Route::resource('posts', PostController::class);
-Route::get('/posts', [PostController::class, 'index'])->name('posts');
-?>

@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-info fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">Aplikasi Desa</a>
+        <a class="navbar-brand" href="{{ route('home') }}">MenFess</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         @if (!Auth::check())
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -19,14 +20,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('contact') }}">Contact</a>
             </li>
-
-
           </ul>
         </div>
 
-
           <a href="{{ route('signup') }}" class="btn btn-outline-light mx-2">Sign Up</a>
-          <a href="{{ route('signin') }}" class="btn btn-outline-light">Signin</a>
+          <a href="{{ route('signin') }}" class="btn btn-outline-light">Sign In</a>
           @else
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
@@ -34,20 +32,16 @@
                   <a class="nav-link" aria-current="page" href="{{ route('users') }}">Data Users</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('profile') }}">Data Warga</a>
+                  <a class="nav-link" href="{{ route('categories.index') }}">Kategori</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('about') }}">Data RT/RW</a>
+                  <a class="nav-link" href="{{ route('posts.index') }}">Postingan</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('contact') }}">Data Surat</a>
-                </li>
-
-
               </ul>
             </div>
+
           <a href="{{ route('logout') }}" class="btn btn-outline-light">Logout</a>
-      @endif
+        @endif
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
