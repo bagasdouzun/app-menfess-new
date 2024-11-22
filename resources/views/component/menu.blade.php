@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-info fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">MenFess</a>
+        <a class="navbar-brand" href="{{ route('home') }}">
+        <img src="{{ asset('menfess-logo-new.png') }}" alt="Logo" style="height: 50px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

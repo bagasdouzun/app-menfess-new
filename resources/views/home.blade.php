@@ -27,8 +27,10 @@ Home
                 </div>
             @endif
 
-
-            <h2>Selamat Datang di halaman Beranda aplikasi</h2>
+            @if(Auth::check())
+            <h2>Selamat Datang {{ Auth::user()->name }}!</h2>
+            <h5>Kirim menfessmu sekarang!</h5>
+            @endif
         </div>
     </div>
 
