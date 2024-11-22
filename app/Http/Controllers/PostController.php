@@ -54,7 +54,7 @@ class PostController extends Controller
         ]);
 
 
-        return redirect()->route('posts')->with('success', 'Postingan berhasil ditambahkan.');
+        return redirect()->route('posts.index')->with('success', 'Postingan berhasil ditambahkan.');
     }
 
 
@@ -108,13 +108,13 @@ class PostController extends Controller
         ]);
 
 
-        return redirect()->route('posts')->with('success', 'Postingan berhasil diupdate.');
+        return redirect()->route('posts.index')->with('success', 'Postingan berhasil diupdate.');
     }
 
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts')->with('success', 'Postingan berhasil dihapus.');
+        return redirect()->route('posts.index')->with('success', 'Postingan berhasil dihapus.');
     }
 }
